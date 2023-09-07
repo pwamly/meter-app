@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,6 +18,7 @@ const settings = ['Profile',  'Logout'];
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  let navigate = useNavigate()
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -34,6 +36,41 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  function update() {
+    // Navigate to the '/updates' route
+    navigate('/updates');
+  }
+  
+  function photo() {
+    // Navigate to the '/photos' route
+    navigate('/photo');
+  }
+  
+  function units() {
+    // Navigate to the '/add-units' route
+    navigate('/add-units');
+  }
+
+
+interface FunctionMap {
+  [key: string]: () => void;
+}
+
+const functions = {
+  Updates: update,
+  Photos: photo,
+  'Add Units': units,
+};
+
+function handleClick(choice: string) {
+  if ((functions as FunctionMap).hasOwnProperty(choice)) {
+    (functions as FunctionMap)[choice]();
+  } else {
+    console.log(`No function defined for page: ${choice}`);
+  }
+}
+
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -44,7 +81,7 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {pages.map((page) => (
-              <Button key={page} color="inherit">
+              <Button key={page} color="inherit" >
                 {page}
               </Button>
             ))}
@@ -67,7 +104,7 @@ function ResponsiveAppBar() {
         onClose={handleCloseNavMenu}
       >
         {pages.map((page) => (
-          <MenuItem key={page} onClick={handleCloseNavMenu}>
+          <MenuItem key={page} onClick={()=>handleClick(page)}>
             {page}
           </MenuItem>
         ))}

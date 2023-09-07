@@ -28,10 +28,7 @@ function App() {
    //  </div>
 
     <Routes>
-   <Route path="/home" element={<Home/>}>
-      <Route path="login" element={<Login/>} />  
-   </Route>
-
+   <Route path="/login" element={<Login/>}/>
    <Route element={<ProtectRoute/>}>
    <Route path="/" element={<Dashboard/>} >  
       <Route path="photo" element={<Photo/>} /> 

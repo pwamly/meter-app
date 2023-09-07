@@ -1,6 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
 import { useCallback, useRef, useState } from "react";
-import Webcam from "react-webcam";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 
@@ -42,14 +41,7 @@ function Photo(){
             }}
           >
             <div id="camera-stream">
-              <Webcam
-                audio={false}
-                ref={webcamRef}
-                screenshotFormat="image/jpeg"
-                videoConstraints={videoConstraints}
-                minScreenshotWidth={80}
-                minScreenshotHeight={80}
-              />
+              
             </div>
             <input name="" placeholder="Enter Unit Readings (1130.7)" />
             <div id="button-container">
