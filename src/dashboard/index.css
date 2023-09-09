@@ -1,7 +1,7 @@
 #camera-stream{
     display: flex;
     justify-content: center;
-    background: gray;
+    background:blue;
     height: 140px;
     width: 200px;
 }
