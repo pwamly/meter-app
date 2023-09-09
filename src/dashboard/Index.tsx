@@ -1,12 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
-import Navbar from "../home/navbar/Index";
+import Navbar from "./navbar/Index";
 
 import "./index.css";
 
 function Index() {
-
-
-
 
   return (
     <>

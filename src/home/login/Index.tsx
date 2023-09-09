@@ -2,11 +2,19 @@ import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import './login.css';
 
 function Index() {
 
 
   return (
+    <div id="wrap">
+       <div style={{ height: "150px", width: "100%" ,background:'red'}}>
+        <img
+          src={require("../../assets/tanesco-pc.jpg")}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
     <Card sx={{ display: "flex", justifyContent: "center", width: "100%",height:'400px',background:'' }}>
       <div
         style={{
@@ -35,7 +43,7 @@ function Index() {
           Sign in
         </Button>
       </div>
-    </Card>
+    </Card></div>
   );
 }
 
